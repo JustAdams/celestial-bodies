@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public float movementSpeed = 25f;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,7 @@ public class PlayerController : MonoBehaviour
         // Move Y axis  
         var verticalMovement = (Input.GetKey(KeyCode.Space) ? 1 : 0) + (Input.GetKey(KeyCode.C) ? -1 : 0);
         // Move X and Z axis
-        Vector3 movement = new Vector3(Input.GetAxisRaw("Horizontal"), verticalMovement, Input.GetAxis("Vertical"));
+        Vector3 movement = new Vector3(Input.GetAxisRaw("Horizontal"), verticalMovement, Input.GetAxis("Vertical")) * Time.deltaTime * movementSpeed;
         transform.Translate(movement, transform);
     }
 }
