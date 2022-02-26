@@ -4,6 +4,13 @@ using UnityEngine;
 public class CelestialBody : MonoBehaviour
 {
     public Rigidbody rb;
+    public TrailRenderer trail;
+    public Vector3 initialForce;
+
+    private void Start()
+    {
+        rb.AddForce(initialForce);
+    }
 
     public void ApplyGravitationalPull(CelestialBody otherBody)
     {
